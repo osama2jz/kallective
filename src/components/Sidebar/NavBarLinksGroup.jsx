@@ -78,7 +78,6 @@ export function LinksGroup({
         onClick={() => {
           setOpened((o) => !o);
           setGlobalOpen(label);
-
           if (link) {
             setSideOpen(false);
             link && navigate(link);
@@ -88,17 +87,6 @@ export function LinksGroup({
           }
         }}
         className={classes.mainLink}
-        sx={{
-          borderRight:
-            location?.pathname === link &&
-            label === globalOpen &&
-            `10px solid ${theme.colors.primary[9]}`,
-        }}
-        bg={
-          location?.pathname === link && label === globalOpen
-            ? theme.colors.primary[2]
-            : ""
-        }
       >
         <Group
           justify="space-between"

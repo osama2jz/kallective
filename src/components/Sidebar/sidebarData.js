@@ -4,7 +4,7 @@ export const sidebarData = [
   {
     label: "Home",
     icon: "home",
-    link: routeNames.general.landing,
+    link: routeNames.general.dashboard,
   },
   {
     label: "Shops",
