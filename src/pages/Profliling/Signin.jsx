@@ -50,7 +50,7 @@ const Signin = () => {
       </Text>
       {/* <Flex direction={'column'}> */}
       <form
-        onSubmit={form.onSubmit((values) => console.log(values))}
+        onSubmit={form.onSubmit((values) => navigate(routeNames.general.dashboard))}
         className={classes.inner}
       >
         <Image src={logo} w={150} m="auto" mt="sm"/>

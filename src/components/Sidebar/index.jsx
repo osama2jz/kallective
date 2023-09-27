@@ -17,9 +17,12 @@ import logo from "../../assets/logoBlue.png";
 import logout from "../../assets/logout.svg";
 import avatar from "../../assets/avatar.svg";
 import InputField from "../InputField";
+import { useNavigate } from "react-router-dom";
+import { routeNames } from "../../routenames";
 
 export function SideBar({ setOpened, opened }) {
   const [globalOpen, setGlobalOpen] = useState("");
+  const navigate = useNavigate();
   const [alert, setAlert] = useState(true);
   const links = sidebarData?.map((item, ind) => (
     <LinksGroup
@@ -91,14 +94,18 @@ export function SideBar({ setOpened, opened }) {
           pt="md"
           mt="md"
         >
-          <Avatar size={"md"} src={avatar}/>
+          <Avatar size={"md"} src={avatar} />
           <Stack gap={0}>
             <Text fw={500}>Olivia Ryhe</Text>
             <Text fz={"sm"} c={"gray"}>
               olivia@veme.com
             </Text>
           </Stack>
-          <Image src={logout} style={{ marginLeft: "auto" }} />
+          <Image
+            src={logout}
+            style={{ marginLeft: "auto", cursor:'pointer' }}
+            onClick={() => navigate(routeNames.general.signin)}
+          />
         </Group>
       </Box>
     </Box>
