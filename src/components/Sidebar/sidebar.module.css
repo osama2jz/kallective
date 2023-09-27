@@ -1,0 +1,37 @@
+.links {
+  margin: 5px;
+  border-radius: 10px;
+}
+.mainLink {
+  font-weight: 500;
+  display: block;
+  width: 100%;
+  /* margin: 1px 0px; */
+  border-bottom: 1px solid rgb(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+.mainLink:hover {
+}
+.bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.link {
+  font-weight: 500;
+  margin: 1px;
+  display: block;
+  text-decoration: none;
+  padding-left: 31;
+  margin-left: 30;
+  border-radius: 5px;
+}
+
+.chevron {
+  color: rgb(0, 0, 0, 0.6);
+  transition: transform 200ms ease;
+}
+.linksInner {
+  overflow-y: scroll;
+  max-height: 75%;
+}

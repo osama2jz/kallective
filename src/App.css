@@ -1,0 +1,18 @@
+::-webkit-scrollbar {
+  width: 8px;
+  height: 7px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(0, 0, 0, 0.1); /* Color of the scrollbar handle */
+  border-radius: 6px; /* Rounded corners of the handle */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: #1d3557;
+}

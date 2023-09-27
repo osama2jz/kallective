@@ -1,0 +1,26 @@
+.outlet {
+  display: flex;
+  height: 100vh;
+}
+.inner {
+  border: 1px solid rgb(0, 0, 0, 0.1);
+  border-radius: 20px;
+  width: 450px;
+  margin-block: auto;
+}
+.tnc {
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  transform: translate(-50%);
+}
+@media (max-width: 770px) {
+  .inner {
+    width: 330px;
+    margin-inline: auto;
+  }
+  .tnc{
+    bottom: 7%;
+    width: 90% !important;
+  }
+}
