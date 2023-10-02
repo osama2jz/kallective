@@ -7,7 +7,10 @@ import { MantineProvider, Text, Title, createTheme } from "@mantine/core";
 import "@mantine/core/styles.css";
 import classes from "./App.css";
 const theme = createTheme({
-  colors: { secondary: ["#1d3557"] },
+  colors: {
+    primary: ["#e63946", "#e63946", "#e63946", "#e63946", "#e63946", "#e63946"],
+    secondary: ["#1d3557"],
+  },
   primaryColor: "red",
 });
 

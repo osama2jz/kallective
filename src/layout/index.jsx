@@ -22,7 +22,7 @@ const Layout = () => {
       </AppShell.Navbar>
 
       <AppShell.Main>
-        <Container fluid px={{ base: "0px", md: "md" }}>
+        <Container p={0} m={"auto"} maw={1200}>
           <Outlet />
         </Container>
       </AppShell.Main>

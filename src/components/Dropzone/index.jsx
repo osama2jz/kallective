@@ -1,8 +1,16 @@
-import { ActionIcon, Box, Image, Loader, Text } from "@mantine/core";
+import {
+  ActionIcon,
+  Box,
+  Flex,
+  Group,
+  Image,
+  Loader,
+  Text,
+} from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { useDropzone } from "react-dropzone";
 import { Paperclip, Photo, X } from "tabler-icons-react";
-import { uploadSingleFile } from "../../constants/firebase";
+// import { uploadSingleFile } from "../../constants/firebase";
 import { useEffect, useState } from "react";
 
 export default function DropZone({ form, name, folderName, label }) {
@@ -20,12 +28,12 @@ export default function DropZone({ form, name, folderName, label }) {
       "image/*": [],
     },
     maxFiles: 1,
-    onDrop: (acceptedFiles) => {
-      const file = acceptedFiles[0];
-      uploadSingleFile({ file, folderName, urlSetter, setProgress });
-      // file.preview = URL.createObjectURL(file);
-      form.setFieldValue(name, url);
-    },
+    // onDrop: (acceptedFiles) => {
+    //   const file = acceptedFiles[0];
+    //   // uploadSingleFile({ file, folderName, urlSetter, setProgress });
+    //   // file.preview = URL.createObjectURL(file);
+    //   form.setFieldValue(name, url);
+    // },
   });
   useEffect(() => {
     progress === 100 && form.setFieldValue(name, url);
@@ -64,7 +72,7 @@ export default function DropZone({ form, name, folderName, label }) {
       {...getRootProps()}
     >
       {form.values[name] == null ? (
-        <>
+        <Flex justify={"space-between"}>
           <input
             {...getInputProps()}
             onChange={(e) => {
@@ -74,21 +82,34 @@ export default function DropZone({ form, name, folderName, label }) {
             }}
           />
 
-          <Photo size={"25%"} />
+          <Photo size={80} />
           {isDragActive ? (
             <Text>Drop the files here ...</Text>
           ) : (
-            <Text>Upload {label} here</Text>
+            <Flex
+              direction={"column"}
+              justify={"center"}
+              align={"center"}
+              p={0}
+              style={{
+                border: "1px solid rgb(0,0,0,0.2)",
+                borderRadius: "10px",
+                flex: 1,
+              }}
+            >
+              <Text fz={14}>Click to upload or drage and drop</Text>
+              <Text fz={14}>SVG, PNG, JPG or GIF (max: 800x400px)</Text>
+            </Flex>
           )}
-        </>
+        </Flex>
       ) : (
         <Box
           sx={{
             width: "100%",
             height: "100%",
             position: "relative",
-            display:'flex',
-            alignItems:'center'
+            display: "flex",
+            alignItems: "center",
           }}
         >
           {progress === null || progress === 100 ? (
@@ -107,7 +128,7 @@ export default function DropZone({ form, name, folderName, label }) {
           ) : (
             <Loader h={"100%"} />
           )}
-          <ActionIcon
+          {/* <ActionIcon
             style={{
               position: "absolute",
               top: 5,
@@ -122,8 +143,8 @@ export default function DropZone({ form, name, folderName, label }) {
               form.setFieldValue(name, null);
             }}
           >
-            <X color="black"/>
-          </ActionIcon>
+            <X color="black" />
+          </ActionIcon> */}
         </Box>
       )}
       {form?.errors?.[name] && (

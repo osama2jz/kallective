@@ -1,24 +1,38 @@
-import { Center, Flex, Group, SegmentedControl, Stack } from "@mantine/core";
-import React from "react";
+import {
+  Center,
+  Flex,
+  Group,
+  Pagination,
+  SegmentedControl,
+  Stack,
+} from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
+import { Map, Marker } from "google-maps-react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { List, MapPin } from "tabler-icons-react";
 import Button from "../../components/Button";
 import InputField from "../../components/InputField";
 import PageHeader from "../../components/PageHeader";
 import SelectMenu from "../../components/SelectMenu";
+import { routeNames } from "../../routenames";
 import Card from "./Card";
-import { useMediaQuery } from "@mantine/hooks";
-import { Map, Marker } from "google-maps-react";
 
 const Shops = () => {
+  const { type } = useParams();
+  const navigate = useNavigate();
   const isMobile = useMediaQuery("(max-width: 500px)");
   return (
     <Stack>
       <Group justify="space-between" mb="lg">
         <PageHeader
-          title={"Active Shops"}
-          subTitle={"Review active merchant shops and drop spots"}
+          title={`${type} Shops`}
+          subTitle={`Review ${type.toLowerCase()} merchant shops and drop spots`}
         />
-        <Button label={"Add"} leftIcon={"plus.svg"} />
+        <Button
+          label={"Add"}
+          leftIcon={"plus.svg"}
+          onClick={() => navigate(routeNames.general.addShop)}
+        />
       </Group>
       <Group justify="space-between">
         <SelectMenu data={[]} placeholder="Select Country" width={170} />
@@ -37,7 +51,7 @@ const Shops = () => {
         <Button label={"Clear"} primary={false} />
         <Button label={"Search"} />
       </Flex>
-      <Map
+      {/* <Map
         zoom={14}
         google={window.google}
         initialCenter={{
@@ -49,7 +63,7 @@ const Shops = () => {
           name={"Your Location"}
           position={{ lat: 37.7749, lng: -122.4194 }} // Replace with your desired marker position
         />
-      </Map>
+      </Map> */}
       <Group justify="space-between">
         <SegmentedControl
           size={isMobile ? "xs" : "md"}
@@ -85,6 +99,9 @@ const Shops = () => {
         <Card />
         <Card />
       </Stack>
+      <Center>
+        <Pagination total={10} radius={"xl"} color="gray" />
+      </Center>
     </Stack>
   );
 };

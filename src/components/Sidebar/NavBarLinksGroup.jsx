@@ -48,13 +48,8 @@ export function LinksGroup({
       pl={50}
       align={"center"}
       to={link.link}
-      onClick={() => setSideOpen(false)}
+      // onClick={() => setSideOpen(false)}
       key={link.label}
-      bg={
-        location?.pathname === link.link && label === globalOpen
-          ? theme.colors.primary[2]
-          : ""
-      }
     >
       <ColorSwatch color={link.color} size={8} />
       <Text c="black" fw={500}>

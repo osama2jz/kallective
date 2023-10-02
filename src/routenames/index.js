@@ -6,8 +6,11 @@ export const routeNames = {
     forgetPassword: "/profiling/forget-password",
     newPassword: "/profiling/new-password",
     dashboard: "/",
-    activeShops: "/shops/active",
-    inactiveShops: "/shops/inactive",
-    pendingShops: "/shops/pending",
+    shops: "/shops/:type",
+    activeShops: "/shops/Active",
+    inactiveShops: "/shops/Inactive",
+    pendingShops: "/shops/Pending",
+    addShop: "/shops/add-shop",
+    viewShop:'/shops/view/:id'
   },
 };

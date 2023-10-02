@@ -9,6 +9,8 @@ import NewPassword from "./pages/Profliling/NewPassword";
 import Layout from "./layout";
 import Home from "./pages/Home";
 import Shops from "./pages/Shops";
+import AddShop from "./pages/Shops/AddShop";
+import ViewShop from "./pages/Shops/ViewShop";
 
 function App() {
   return (
@@ -28,7 +30,9 @@ function App() {
         </Route>
         <Route path={routeNames.general.dashboard} element={<Layout />}>
           <Route path={routeNames.general.dashboard} element={<Home />} />
-          <Route path={routeNames.general.activeShops} element={<Shops />} />
+          <Route path={routeNames.general.shops} element={<Shops />} />
+          <Route path={routeNames.general.addShop} element={<AddShop />} />
+          <Route path={routeNames.general.viewShop} element={<ViewShop />} />
         </Route>
       </Routes>
     </>
