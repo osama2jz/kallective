@@ -11,6 +11,10 @@ import Home from "./pages/Home";
 import Shops from "./pages/Shops";
 import AddShop from "./pages/Shops/AddShop";
 import ViewShop from "./pages/Shops/ViewShop";
+import Drops from "./pages/Drops";
+import AddDrop from "./pages/Drops/AddDrop";
+import AddDropStep2 from "./pages/Drops/AddDrop/Step2";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -33,7 +37,14 @@ function App() {
           <Route path={routeNames.general.shops} element={<Shops />} />
           <Route path={routeNames.general.addShop} element={<AddShop />} />
           <Route path={routeNames.general.viewShop} element={<ViewShop />} />
+          <Route path={routeNames.general.drops} element={<Drops />} />
+          <Route path={routeNames.general.addDrop1} element={<AddDrop />} />
+          <Route
+            path={routeNames.general.addDrop2}
+            element={<AddDropStep2 />}
+          />
         </Route>
+          <Route path={"*"} element={<NotFound />} />
       </Routes>
     </>
   );

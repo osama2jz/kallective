@@ -3,7 +3,6 @@ import { Button as ButtonMantine, useMantineTheme } from "@mantine/core";
 const Button = ({
   leftIcon,
   label,
-  styles,
   onClick,
   w,
   compact,
@@ -18,7 +17,6 @@ const Button = ({
 }) => {
   return (
     <ButtonMantine
-      sx={styles}
       compact={compact}
       disabled={disabled}
       loading={loading}

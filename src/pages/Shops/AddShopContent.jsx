@@ -83,8 +83,8 @@ const AddShopContent = ({ form, setOpen }) => {
         </Grid.Col>
         <Grid.Col span={8}>
           <Flex gap={"md"}>
-            <InputField placeholder={"City"} w={'50%'}/>
-            <InputField placeholder={"State"} w={'50%'}/>
+            <InputField placeholder={"City"} w={"50%"} />
+            <InputField placeholder={"State"} w={"50%"} />
           </Flex>
         </Grid.Col>
       </Grid>
@@ -96,7 +96,13 @@ const AddShopContent = ({ form, setOpen }) => {
         <Button
           label={pathname.includes("add-shop") ? "Cancel" : "Decline"}
           primary={false}
-          onClick={() => pathname.includes("add-shop") ? navigate(-1) : setOpen(false)}
+          onClick={(e) => {
+            if (pathname.includes("add-shop")) navigate(-1);
+            else {
+              e.stopPropagation();
+              setOpen(false);
+            }
+          }}
           fullWidth={true}
         />
         <Button

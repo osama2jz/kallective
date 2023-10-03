@@ -46,11 +46,11 @@ export function LinksGroup({
       pl={50}
       align={"center"}
       to={link.link}
-      bg={location.pathname === link.link ? "#f9fafb" : "white"}
+      bg={location.pathname === link.link ? "#f8f8f8" : "white"}
       // onClick={() => setSideOpen(false)}
       key={link.label}
     >
-      <ColorSwatch color={link.color} size={8} />
+      {link?.color && <ColorSwatch color={link.color} size={8} />}
       <Text c="black" fw={500}>
         {link.label}
       </Text>
@@ -79,7 +79,7 @@ export function LinksGroup({
             localStorage.removeItem("userData");
           }
         }}
-        bg={location.pathname === link ? "#f9fafb" : "white"}
+        bg={location.pathname === link ? "#f8f8f8" : "white"}
         className={classes.mainLink}
       >
         <Group

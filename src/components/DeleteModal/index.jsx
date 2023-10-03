@@ -1,21 +1,6 @@
-import {
-  createStyles,
-  Group,
-  Modal as ModalMantine,
-  Text,
-  Container,
-} from "@mantine/core";
+import { Group, Modal as ModalMantine, Text, Container } from "@mantine/core";
 import cross from "../../assets/cross.svg";
 import Button from "../Button";
-
-const useStyles = createStyles((theme) => ({
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: "5px",
-  },
-}));
 
 const DeleteModal = ({
   opened,
@@ -25,7 +10,6 @@ const DeleteModal = ({
   loading,
   message,
 }) => {
-  const { classes, cx } = useStyles();
   return (
     <ModalMantine
       opened={opened}
@@ -33,7 +17,7 @@ const DeleteModal = ({
       withCloseButton={false}
       centered
     >
-      <Container className={classes.root}>
+      <Container>
         <img src={cross} alt="icon" width={"40px"} />
         <Text fw={"bold"}>{label}</Text>
         <Text align="center">{message}</Text>

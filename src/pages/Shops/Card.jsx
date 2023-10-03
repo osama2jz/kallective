@@ -79,7 +79,14 @@ const Card = () => {
           {type === "Pending" ? (
             <Text>
               Pending Approval{" "}
-              <Anchor onClick={() => setOpen(true)}>Review?</Anchor>
+              <Anchor
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setOpen(true);
+                }}
+              >
+                Review?
+              </Anchor>
             </Text>
           ) : (
             <Flex align={"center"} gap={"sm"}>

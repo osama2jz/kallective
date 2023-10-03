@@ -27,9 +27,25 @@ export const sidebarData = [
     label: "Drops",
     icon: "drops",
     links: [
-      { label: "Active", link: null, color: "green" },
-      { label: "Pending", link: null, color: "yellow" },
-      { label: "Inactive", link: null, color: "red" },
+      { label: "Active", link: routeNames.general.activeDrops, color: "green" },
+      {
+        label: "Pending",
+        link: routeNames.general.pendingDrops,
+        color: "yellow",
+      },
+      {
+        label: "Inactive",
+        link: routeNames.general.inactiveDrops,
+        color: "red",
+      },
+      {
+        label: "Add a New Drop",
+        link: routeNames.general.addDrop1,
+      },
+      {
+        label: "Claimed Drops",
+        link: routeNames.general.claimedDrops,
+      },
     ],
   },
   {

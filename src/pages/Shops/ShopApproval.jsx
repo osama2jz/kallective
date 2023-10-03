@@ -19,8 +19,8 @@ const ShopApproval = ({ open, setOpen }) => {
   return (
     <Modal
       opened={open}
-      onClose={() => setOpen(false)}
       size={"lg"}
+      closeOnClickOutside={false}
       withCloseButton={false}
       styles={{ body: { paddingInline: 0 } }}
     >
@@ -33,7 +33,13 @@ const ShopApproval = ({ open, setOpen }) => {
           <Text c="gray" fz={14}>
             Please review pending shop before adding to the network.
           </Text>
-          <X className={classes.close} onClick={() => setOpen(false)} />
+          <X
+            className={classes.close}
+            onClick={(e) => {
+              e.stopPropagation();
+              setOpen(false);
+            }}
+          />
         </Stack>
       </Group>
       <AddShopContent form={form} setOpen={setOpen} />
