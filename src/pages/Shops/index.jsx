@@ -1,4 +1,5 @@
 import {
+  Box,
   Center,
   Flex,
   Group,
@@ -7,8 +8,8 @@ import {
   Stack,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
-import { Map, Marker } from "google-maps-react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import GoogleMapReact from "google-map-react";
+import { useNavigate, useParams } from "react-router-dom";
 import { List, MapPin } from "tabler-icons-react";
 import Button from "../../components/Button";
 import InputField from "../../components/InputField";
@@ -51,28 +52,33 @@ const Shops = () => {
         <Button label={"Clear"} primary={false} />
         <Button label={"Search"} />
       </Flex>
-      {/* <Map
-        zoom={14}
-        google={window.google}
-        initialCenter={{
-          lat: 37.7749,
-          lng: -122.4194,
-        }}
-      >
-        <Marker
-          name={"Your Location"}
-          position={{ lat: 37.7749, lng: -122.4194 }} // Replace with your desired marker position
-        />
-      </Map> */}
+      <Box style={{ height: "360px", width: "100%" }}>
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: "" }}
+          defaultCenter={{
+            lat: 10.99835602,
+            lng: 77.01502627,
+          }}
+          defaultZoom={11}
+        >
+          {/* <Marke
+          lat={59.955413}
+          lng={30.337844}
+          text="My Marker"
+        /> */}
+        </GoogleMapReact>
+      </Box>
       <Group justify="space-between">
         <SegmentedControl
           size={isMobile ? "xs" : "md"}
           data={["Sort by location", "Sort by active drops"]}
           radius={isMobile ? "sm" : "md"}
+          bg="#f8f8f8"
         />
         <SegmentedControl
           size={isMobile ? "xs" : "md"}
           radius={isMobile ? "sm" : "md"}
+          bg="#f8f8f8"
           data={[
             {
               value: "",

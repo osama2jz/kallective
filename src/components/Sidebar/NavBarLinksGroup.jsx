@@ -30,14 +30,12 @@ export function LinksGroup({
   const location = useLocation();
   const theme = useMantineTheme();
   const hasLinks = Array.isArray(links);
-  const [orderCount, setOrderCount] = useState(0);
   const [opened, setOpened] = useState(initiallyOpened || false);
   const ChevronIcon = ChevronDown;
 
   useEffect(() => {
     globalOpen !== label && setOpened(false);
   }, [globalOpen, label]);
-
   const items = (hasLinks ? links : []).map((link, index) => (
     <Flex
       component={Link}
@@ -48,6 +46,7 @@ export function LinksGroup({
       pl={50}
       align={"center"}
       to={link.link}
+      bg={location.pathname === link.link ? "#f9fafb" : "white"}
       // onClick={() => setSideOpen(false)}
       key={link.label}
     >
@@ -74,13 +73,13 @@ export function LinksGroup({
           setOpened((o) => !o);
           setGlobalOpen(label);
           if (link) {
-            setSideOpen(false);
             link && navigate(link);
           }
           if (label === "Log Out") {
             localStorage.removeItem("userData");
           }
         }}
+        bg={location.pathname === link ? "#f9fafb" : "white"}
         className={classes.mainLink}
       >
         <Group

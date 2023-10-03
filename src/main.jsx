@@ -9,6 +9,7 @@ import classes from "./App.css";
 const theme = createTheme({
   colors: {
     primary: ["#e63946", "#e63946", "#e63946", "#e63946", "#e63946", "#e63946"],
+    gray: ["#9399A1", "#9399A1", "#9399A1", "#9399A1", "#9399A1", "#9399A1", "#9399A1", "#9399A1", "#9399A1"],
     secondary: ["#1d3557"],
   },
   primaryColor: "red",
