@@ -1,5 +1,10 @@
-import { Group, Modal as ModalMantine, Text, Container } from "@mantine/core";
-import cross from "../../assets/cross.svg";
+import {
+  Container,
+  Flex,
+  Modal as ModalMantine,
+  Text
+} from "@mantine/core";
+import cross from "../../assets/delete.svg";
 import Button from "../Button";
 
 const DeleteModal = ({
@@ -18,18 +23,24 @@ const DeleteModal = ({
       centered
     >
       <Container>
-        <img src={cross} alt="icon" width={"40px"} />
+        <img src={cross} alt="icon" width={"50px"} />
         <Text fw={"bold"}>{label}</Text>
-        <Text align="center">{message}</Text>
-        <Group pt={"sm"} position="center">
+        <Text c={'gray'}>{message}</Text>
+        <Flex pt={"sm"} gap={"md"}>
           <Button
             label="Cancel"
             disabled={loading}
+            fullWidth={true}
             onClick={() => setOpened(false)}
-            variant="outline"
+            primary={false}
           />
-          <Button label="Delete" onClick={onDelete} loading={loading} />
-        </Group>
+          <Button
+            label="Delete"
+            onClick={onDelete}
+            loading={loading}
+            fullWidth={true}
+          />
+        </Flex>
       </Container>
     </ModalMantine>
   );

@@ -21,10 +21,11 @@ const Button = ({
       disabled={disabled}
       loading={loading}
       w={w}
-      color={primary ? "" : "#9399A1"}
+      color={primary ? "" : "#1d3557"}
       size={size}
       radius={"md"}
       variant={primary ? variant : "outline"}
+      // styles={{root:{borderColor:'rgb(0,0,0,0.2)'}}}
       leftSection={
         leftIcon ? (
           <img

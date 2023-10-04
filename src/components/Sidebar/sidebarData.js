@@ -4,21 +4,29 @@ export const sidebarData = [
   {
     label: "Home",
     icon: "home",
+    showBadge: false,
     link: routeNames.general.dashboard,
   },
   {
     label: "Shops",
     icon: "shops",
     links: [
-      { label: "Active", link: routeNames.general.activeShops, color: "green" },
+      {
+        label: "Active",
+        link: routeNames.general.activeShops,
+        color: "green",
+        showBadge: true,
+      },
       {
         label: "Pending",
         link: routeNames.general.pendingShops,
+        showBadge: true,
         color: "yellow",
       },
       {
         label: "Inactive",
         link: routeNames.general.inactiveShops,
+        showBadge: true,
         color: "red",
       },
     ],
@@ -27,23 +35,32 @@ export const sidebarData = [
     label: "Drops",
     icon: "drops",
     links: [
-      { label: "Active", link: routeNames.general.activeDrops, color: "green" },
+      {
+        label: "Active",
+        link: routeNames.general.activeDrops,
+        color: "green",
+        showBadge: true,
+      },
       {
         label: "Pending",
         link: routeNames.general.pendingDrops,
+        showBadge: true,
         color: "yellow",
       },
       {
         label: "Inactive",
         link: routeNames.general.inactiveDrops,
+        showBadge: true,
         color: "red",
       },
       {
         label: "Add a New Drop",
         link: routeNames.general.addDrop1,
+        showBadge: false,
       },
       {
         label: "Claimed Drops",
+        showBadge: false,
         link: routeNames.general.claimedDrops,
       },
     ],
@@ -56,7 +73,7 @@ export const sidebarData = [
   {
     label: "Users",
     icon: "users",
-    link: null,
+    link: routeNames.general.users,
   },
 ];
 export const bottomData = [
@@ -68,6 +85,6 @@ export const bottomData = [
   {
     label: "Settings",
     icon: "settings",
-    link: null,
+    link: routeNames.general.settings,
   },
 ];

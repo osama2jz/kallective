@@ -9,10 +9,12 @@ import {
   Title,
   useMantineTheme,
 } from "@mantine/core";
-// import Papa from "papaparse";
+import Papa from "papaparse";
 import React, { useState } from "react";
 import DataTable from "react-data-table-component";
 import Button from "../Button";
+import { CloudDownload } from "tabler-icons-react";
+import { useNavigate } from "react-router-dom";
 
 // import { Download } from "tabler-icons-react";
 
@@ -32,33 +34,40 @@ const customStyles = {
 
 const DataGrid = ({ columns, data, type, download = true, ...props }) => {
   const theme = useMantineTheme();
+  const navigate = useNavigate();
   const [select, setSelected] = useState(null);
 
-  // const actionsMemo = React.useMemo(() => {
-  //   data?.forEach((element) => {
-  //     delete element?.id;
-  //   });
-  //   let csv = Papa.unparse(data);
-  //   return (
-  //     <Anchor
-  //       style={{
-  //         display: "flex",
-  //         alignItems: "center",
-  //         gap: "10px",
-  //         border: "2px dashed rgb(255, 140, 147)",
-  //         borderRadius: "10px",
-  //         fontSize: "14px",
-  //         padding: "5px",
-  //       }}
-  //       href={`data:text/csv;charset=utf-8,${encodeURI(csv)}`}
-  //       download={`${type}.csv`}
-  //       color="primary.0"
-  //     >
-  //       <Download size={16} />
-  //       Download
-  //     </Anchor>
-  //   );
-  // }, [data, type]);
+  const actionsMemo = React.useMemo(() => {
+    data?.forEach((element) => {
+      delete element?.id;
+    });
+    let csv = Papa.unparse(data);
+    return (
+      <Button
+        primary={false}
+        label={"Download CSV"}
+        leftIcon={"download.svg"}
+        onClick={() =>
+          (location.href = `data:text/csv;charset=utf-8,${encodeURI(csv)}`)
+        }
+      />
+      // <Anchor
+      //   style={{
+      //     display: "flex",
+      //     alignItems: "center",
+      //     gap: "10px",
+      //     borderRadius: "10px",
+      //     fontSize: "14px",
+      //     padding: "5px",
+      //   }}
+      //   href={`data:text/csv;charset=utf-8,${encodeURI(csv)}`}
+      //   download={`${type}.csv`}
+      // >
+      //   <CloudDownload size={16} />
+      //   Download
+      // </Anchor>
+    );
+  }, [data]);
 
   const handleChange = ({ selectedRows }) => {
     setSelected(selectedRows);
@@ -86,14 +95,17 @@ const DataGrid = ({ columns, data, type, download = true, ...props }) => {
               ml="md"
               styles={{ root: { borderColor: "rgb(0,0,0,0.2)" } }}
             >
-              {"215 drops"}
+              {data.length} {type}
             </Badge>
           </Text>
           <Text c="gray">{props?.subTitle}</Text>
         </Box>
-        {select?.length > 0 && (
-          <Button label={`Delete selected ${type}`} leftIcon={"trash.svg"} />
-        )}
+        <Group>
+          {actionsMemo}
+          {select?.length > 0 && (
+            <Button label={`Delete selected ${type}`} leftIcon={"trash.svg"} />
+          )}
+        </Group>
       </Group>
       <DataTable
         columns={columns}

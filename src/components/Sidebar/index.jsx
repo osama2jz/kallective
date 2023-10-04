@@ -30,6 +30,7 @@ export function SideBar({ setOpened, opened }) {
       icon={item.icon}
       key={ind}
       ind={ind + 1}
+      showBadge={item?.showBadge}
       link={item.link}
       globalOpen={globalOpen}
       setGlobalOpen={setGlobalOpen}
@@ -42,6 +43,7 @@ export function SideBar({ setOpened, opened }) {
       icon={item.icon}
       key={ind}
       ind={ind + 1}
+      showBadge={false}
       link={item.link}
       globalOpen={globalOpen}
       setGlobalOpen={setGlobalOpen}
@@ -53,7 +55,10 @@ export function SideBar({ setOpened, opened }) {
     <Box
       h={"100%"}
       pos={"relative"}
-      style={{ display: "flex", flexDirection: "column" }}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+      }}
     >
       <Image src={logo} w={150} mx="auto" />
       <InputField
@@ -103,7 +108,7 @@ export function SideBar({ setOpened, opened }) {
           </Stack>
           <Image
             src={logout}
-            style={{ marginLeft: "auto", cursor:'pointer' }}
+            style={{ marginLeft: "auto", cursor: "pointer" }}
             onClick={() => navigate(routeNames.general.signin)}
           />
         </Group>

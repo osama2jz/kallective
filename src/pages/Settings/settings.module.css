@@ -1,0 +1,5 @@
+.tabs {
+}
+.tabs::before {
+  border-width: 10px !important;
+}

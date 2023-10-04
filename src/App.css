@@ -16,3 +16,7 @@ h6,
 p {
   color: #1d3557;
 }
+
+.m-576c9d4::before {
+  border: none !important;
+}

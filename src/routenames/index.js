@@ -20,5 +20,7 @@ export const routeNames = {
     addDrop2: "/drops/add-drop-step-2",
     addDropSpot: "/drops/add-drop-Spot",
     claimedDrops: "/drops/Claimed",
+    users: "/users",
+    settings: "/settings",
   },
 };

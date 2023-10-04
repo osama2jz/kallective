@@ -15,6 +15,8 @@ import Drops from "./pages/Drops";
 import AddDrop from "./pages/Drops/AddDrop";
 import AddDropStep2 from "./pages/Drops/AddDrop/Step2";
 import NotFound from "./pages/NotFound";
+import Users from "./pages/Users";
+import Settings from "./pages/Settings";
 
 function App() {
   return (
@@ -43,8 +45,10 @@ function App() {
             path={routeNames.general.addDrop2}
             element={<AddDropStep2 />}
           />
+          <Route path={routeNames.general.users} element={<Users />} />
+          <Route path={routeNames.general.settings} element={<Settings />} />
         </Route>
-          <Route path={"*"} element={<NotFound />} />
+        <Route path={"*"} element={<NotFound />} />
       </Routes>
     </>
   );

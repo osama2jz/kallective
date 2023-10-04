@@ -47,7 +47,7 @@ const InputField = ({
           ""
         )
       }
-      placeholder={placeholder}
+      placeholder={placeholder || label}
       {...props}
     />
   );

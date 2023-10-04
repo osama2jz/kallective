@@ -18,6 +18,7 @@ import classes from "./sidebar.module.css";
 export function LinksGroup({
   icon,
   label,
+  showBadge = true,
   initiallyOpened,
   links,
   ind,
@@ -54,15 +55,17 @@ export function LinksGroup({
       <Text c="black" fw={500}>
         {link.label}
       </Text>
-      <Badge
-        variant="light"
-        size="xs"
-        ml="auto"
-        color="rgb(0,0,0,0.2)"
-        styles={{ label: { color: "rgba(0,0,0,0.8)" } }}
-      >
-        10
-      </Badge>
+      {link.showBadge && (
+        <Badge
+          variant="light"
+          size="xs"
+          ml="auto"
+          color="rgb(0,0,0,0.2)"
+          styles={{ label: { color: "rgba(0,0,0,0.8)" } }}
+        >
+          10
+        </Badge>
+      )}
     </Flex>
   ));
 
@@ -97,14 +100,16 @@ export function LinksGroup({
             <Text fw={500}>{label}</Text>
           </Group>
           <Group gap={"xs"}>
-            <Badge
-              variant="light"
-              size="xs"
-              color="rgb(0,0,0,0.2)"
-              styles={{ label: { color: "rgba(0,0,0,0.8)" } }}
-            >
-              10
-            </Badge>
+            {showBadge && (
+              <Badge
+                variant="light"
+                size="xs"
+                color="rgb(0,0,0,0.2)"
+                styles={{ label: { color: "rgba(0,0,0,0.8)" } }}
+              >
+                10
+              </Badge>
+            )}
             {hasLinks && (
               <ChevronIcon
                 className={classes.chevron}
