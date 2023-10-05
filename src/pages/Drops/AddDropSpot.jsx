@@ -84,7 +84,7 @@ const AddDropSpot = ({ open, setOpen }) => {
         </Grid>
         <Box style={{ height: "250px", width: "100%" }}>
           <GoogleMapReact
-            bootstrapURLKeys={{ key: "" }}
+            bootstrapURLKeys={{ key: import.meta.env.VITE_GOOGLE_MAP_KEY }}
             defaultCenter={{
               lat: 10.99835602,
               lng: 77.01502627,

@@ -63,7 +63,7 @@ const AddDropStep2 = () => {
         </Grid>
         <Box style={{ height: "300px", width: "100%", borderRadius:'20px', overflow:'hidden' }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: "" }}
+          bootstrapURLKeys={{ key: import.meta.env.VITE_GOOGLE_MAP_KEY }}
           defaultCenter={{
             lat: 10.99835602,
             lng: 77.01502627,
