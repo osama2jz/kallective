@@ -1,10 +1,10 @@
 import { Box, Divider, Group, SimpleGrid } from "@mantine/core";
-import React, { useState } from "react";
+import GoogleMapReact from "google-map-react";
+import React from "react";
 import PageHeader from "../../components/PageHeader";
 import Card from "./Card";
-import GoogleMapReact from "google-map-react";
-import Users from "./Users";
 import Shops from "./Shops";
+import Users from "./Users";
 
 const Home = () => {
   return (
