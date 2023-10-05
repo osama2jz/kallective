@@ -1,18 +1,16 @@
-import { useState } from "react";
 import { Anchor, Avatar, Box, Flex, Group, Text } from "@mantine/core";
+import { useState } from "react";
 import DataGrid from "../../components/Table";
-import ActionIcons from "../../components/ActionIcons";
-import EditProfile from "../Users/EditProfile";
-import { useNavigate } from "react-router-dom";
 import { routeNames } from "../../routenames";
+import { useNavigate } from "react-router-dom";
 
-const Users = () => {
+const Shops = () => {
   const navigate = useNavigate();
   const Columns = [
     {
       name: "Name",
       selector: (row) => row.merchant,
-      width:"250px",
+      width: "250px",
       sortable: true,
       cell: (row) => (
         <Flex gap="sm" py="sm">
@@ -35,15 +33,7 @@ const Users = () => {
       name: "",
       center: true,
       width: "100px",
-      cell: (row) => (
-        <ActionIcons
-          rowData={row}
-          // view={true}
-          del={true}
-          edit={<EditProfile />}
-          // type="Revenue"
-        />
-      ),
+      cell: (row) => <Anchor>Review</Anchor>,
     },
   ];
   const [data, setData] = useState([
@@ -86,14 +76,14 @@ const Users = () => {
   return (
     <Box>
       <Group justify="space-between" mb="md">
-        <Text fw={"bold"}>New Users</Text>
-        <Anchor onClick={() => navigate(routeNames.general.users)}>
-          All Users
+        <Text fw={"bold"}>Pending Shops</Text>
+        <Anchor onClick={() => navigate(routeNames.general.pendingShops)}>
+          All Pending
         </Anchor>
       </Group>
-      <DataGrid columns={Columns} data={data} type={"Users"} download={false} />
+      <DataGrid columns={Columns} data={data} type={"Shops"} download={false} />
     </Box>
   );
 };
 
-export default Users;
+export default Shops;

@@ -1,20 +1,18 @@
-import { useTheme } from "@emotion/react";
 import {
-  Anchor,
   Badge,
   Box,
+  Checkbox,
   Group,
   Loader,
   Text,
-  Title,
-  useMantineTheme,
+  useMantineTheme
 } from "@mantine/core";
 import Papa from "papaparse";
 import React, { useState } from "react";
 import DataTable from "react-data-table-component";
-import Button from "../Button";
-import { CloudDownload } from "tabler-icons-react";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import Button from "../Button";
 
 // import { Download } from "tabler-icons-react";
 
@@ -72,7 +70,6 @@ const DataGrid = ({ columns, data, type, download = true, ...props }) => {
   const handleChange = ({ selectedRows }) => {
     setSelected(selectedRows);
   };
-
   return (
     <Box
       style={{
@@ -82,31 +79,38 @@ const DataGrid = ({ columns, data, type, download = true, ...props }) => {
         // boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
       }}
     >
-      <Group
-        justify="space-between"
-        p="md"
-        style={{ borderBottom: "1px solid rgb(0,0,0,0.1)" }}
-      >
-        <Box>
-          <Text fw={600} fz={18}>
-            {props?.label}
-            <Badge
-              variant="outline"
-              ml="md"
-              styles={{ root: { borderColor: "rgb(0,0,0,0.2)" } }}
-            >
-              {data.length} {type}
-            </Badge>
-          </Text>
-          <Text c="gray">{props?.subTitle}</Text>
-        </Box>
-        <Group>
-          {actionsMemo}
-          {select?.length > 0 && (
-            <Button label={`Delete selected ${type}`} leftIcon={"trash.svg"} />
-          )}
+      {(props?.label || select?.length > 0) && (
+        <Group
+          justify="space-between"
+          p="md"
+          style={{ borderBottom: "1px solid rgb(0,0,0,0.1)" }}
+        >
+          <Box>
+            {props?.label && (
+              <Text fw={600} fz={18}>
+                {props?.label}
+                <Badge
+                  variant="outline"
+                  ml="md"
+                  styles={{ root: { borderColor: "rgb(0,0,0,0.2)" } }}
+                >
+                  {data.length} {type}
+                </Badge>
+              </Text>
+            )}
+            <Text c="gray">{props?.subTitle}</Text>
+          </Box>
+          <Group>
+            {download && actionsMemo}
+            {select?.length > 0 && (
+              <Button
+                label={`Delete selected ${type}`}
+                leftIcon={"trash.svg"}
+              />
+            )}
+          </Group>
         </Group>
-      </Group>
+      )}
       <DataTable
         columns={columns}
         data={data}
@@ -116,6 +120,7 @@ const DataGrid = ({ columns, data, type, download = true, ...props }) => {
         subHeaderWrap
         selectableRows
         onSelectedRowsChange={handleChange}
+        selectableRowsComponent={Checkbox}
         progressComponent={<Loader my={10} color={theme.primaryColor} />}
         // actions={download && actionsMemo}
         customStyles={customStyles}

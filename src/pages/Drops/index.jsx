@@ -110,6 +110,7 @@ const Drops = () => {
       <DataGrid
         columns={Columns(type)}
         data={data}
+        download={false}
         type={"drops"}
         label="Listed Drops"
         subTitle="Track and manage all  network drops"

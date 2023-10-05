@@ -14,7 +14,7 @@ const Card = ({
         <Text fw={500}>{title}</Text> <DotsVertical cursor={"pointer"} />
       </Group>
       <Title>{value}</Title>
-      <Group gap={'xs'}>
+      <Group gap={"xs"}>
         <Text
           c="green"
           display={"flex"}

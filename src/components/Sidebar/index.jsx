@@ -10,17 +10,17 @@ import {
   Text,
 } from "@mantine/core";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import avatar from "../../assets/avatar.svg";
+import logo from "../../assets/logoBlue.png";
+import logout from "../../assets/logout.svg";
+import { routeNames } from "../../routenames";
+import InputField from "../InputField";
 import { LinksGroup } from "./NavBarLinksGroup";
 import classes from "./sidebar.module.css";
 import { bottomData, sidebarData } from "./sidebarData";
-import logo from "../../assets/logoBlue.png";
-import logout from "../../assets/logout.svg";
-import avatar from "../../assets/avatar.svg";
-import InputField from "../InputField";
-import { useNavigate } from "react-router-dom";
-import { routeNames } from "../../routenames";
 
-export function SideBar({ setOpened, opened }) {
+export function SideBar({ toggle, opened }) {
   const [globalOpen, setGlobalOpen] = useState("");
   const navigate = useNavigate();
   const [alert, setAlert] = useState(true);
@@ -34,7 +34,7 @@ export function SideBar({ setOpened, opened }) {
       link={item.link}
       globalOpen={globalOpen}
       setGlobalOpen={setGlobalOpen}
-      setSideOpen={setOpened}
+      toggle={toggle}
     />
   ));
   const bottoms = bottomData?.map((item, ind) => (
@@ -47,10 +47,9 @@ export function SideBar({ setOpened, opened }) {
       link={item.link}
       globalOpen={globalOpen}
       setGlobalOpen={setGlobalOpen}
-      setSideOpen={setOpened}
+      toggle={toggle}
     />
   ));
-
   return (
     <Box
       h={"100%"}
@@ -60,14 +59,20 @@ export function SideBar({ setOpened, opened }) {
         flexDirection: "column",
       }}
     >
-      <Image src={logo} w={150} mx="auto" />
-      <InputField
+      <Image
+        src={logo}
+        w={150}
+        mx="auto"
+        style={{ cursor: "pointer" }}
+        onClick={() => navigate(routeNames.general.dashboard)}
+      />
+      {/* <InputField
         placeholder={"Search"}
         size="sm"
         leftIcon={"search"}
         my="md"
-      />
-      <Flex direction={"column"} style={{ position: "relative", flexGrow: 1 }}>
+      /> */}
+      <Flex direction={"column"} style={{ position: "relative", flexGrow: 1 }} mt="lg">
         <Box className={classes.linksInner}>{links}</Box>
         <Box className={classes.bottom}>{bottoms}</Box>
       </Flex>
@@ -80,12 +85,12 @@ export function SideBar({ setOpened, opened }) {
             withCloseButton
             onClose={() => setAlert(false)}
             p={10}
-            styles={{ title: { color: "black" }, message: { fontSize: 12 } }}
+            styles={{ title: { color: "#1d3557" }, message: { fontSize: 12 } }}
           >
             You can now drop products at any of our available shared drop spot
             locations.
             <Group>
-              <Anchor fw={"bold"} c={"black"} fz={"sm"}>
+              <Anchor fw={"bold"} c={"secondary.0"} fz={"sm"}>
                 Dismiss
               </Anchor>
               <Anchor fw={"bold"} fz={"sm"}>

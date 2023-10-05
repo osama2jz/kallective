@@ -29,6 +29,11 @@ export const sidebarData = [
         showBadge: true,
         color: "red",
       },
+      {
+        label: "Add a New Shop",
+        link: routeNames.general.addShop,
+        showBadge: false,
+      },
     ],
   },
   {

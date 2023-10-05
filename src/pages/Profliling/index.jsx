@@ -10,9 +10,11 @@ const Profiling = () => {
     <Box h={"100vh"}>
       <Grid h={"100%"} grow>
         <Grid.Col span={4} visibleFrom="sm">
-          <BackgroundImage h="100vh" src={imgg}>
-            <Image src={logo} w={200} mx="auto" pt={20} />
-          </BackgroundImage>
+          <BackgroundImage
+            h="100vh"
+            src={imgg}
+            style={{ backgroundPosition: "top" }}
+          ></BackgroundImage>
         </Grid.Col>
         <Grid.Col span={8} h="100%" style={{ position: "relative" }}>
           <Outlet />

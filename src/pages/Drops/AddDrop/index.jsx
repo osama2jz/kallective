@@ -1,5 +1,5 @@
 import { Box, Divider, Flex, Grid, Stack, Text } from "@mantine/core";
-import { DateInput, TimeInput } from "@mantine/dates";
+import { DateInput, DatePicker, TimeInput } from "@mantine/dates";
 import { useForm } from "@mantine/form";
 import React from "react";
 import Button from "../../../components/Button";
@@ -101,7 +101,11 @@ const AddDrop = () => {
           onClick={() => navigate(-1)}
           fullWidth={true}
         />
-        <Button label={"Next"} fullWidth={true} onClick={()=>navigate(routeNames.general.addDrop2)}/>
+        <Button
+          label={"Next"}
+          fullWidth={true}
+          onClick={() => navigate(routeNames.general.addDrop2)}
+        />
       </Flex>
     </Box>
   );

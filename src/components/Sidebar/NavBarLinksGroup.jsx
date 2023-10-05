@@ -25,7 +25,7 @@ export function LinksGroup({
   link,
   globalOpen,
   setGlobalOpen,
-  setSideOpen,
+  toggle,
 }) {
   const navigate = useNavigate();
   const location = useLocation();
@@ -48,13 +48,11 @@ export function LinksGroup({
       align={"center"}
       to={link.link}
       bg={location.pathname === link.link ? "#f8f8f8" : "white"}
-      // onClick={() => setSideOpen(false)}
+      onClick={() => toggle()}
       key={link.label}
     >
       {link?.color && <ColorSwatch color={link.color} size={8} />}
-      <Text c="black" fw={500}>
-        {link.label}
-      </Text>
+      <Text fw={600}>{link.label}</Text>
       {link.showBadge && (
         <Badge
           variant="light"
@@ -75,6 +73,7 @@ export function LinksGroup({
         onClick={() => {
           setOpened((o) => !o);
           setGlobalOpen(label);
+          !hasLinks && toggle();
           if (link) {
             link && navigate(link);
           }
@@ -97,7 +96,7 @@ export function LinksGroup({
               src={new URL(`../../assets/${icon}.svg`, import.meta.url).href}
               w={20}
             />
-            <Text fw={500}>{label}</Text>
+            <Text fw={600}>{label}</Text>
           </Group>
           <Group gap={"xs"}>
             {showBadge && (

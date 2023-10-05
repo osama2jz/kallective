@@ -4,45 +4,9 @@ import PageHeader from "../../components/PageHeader";
 import Card from "./Card";
 import GoogleMapReact from "google-map-react";
 import Users from "./Users";
+import Shops from "./Shops";
 
 const Home = () => {
-  const [data, setData] = useState([
-    {
-      name: "Natali Craig",
-      email: "email@gmail.com",
-      dateJoined: "Feb 22, 2023",
-    },
-    {
-      name: "Natali Craig",
-      email: "email@gmail.com",
-      dateJoined: "Feb 22, 2023",
-    },
-    {
-      name: "Natali Craig",
-      email: "email@gmail.com",
-      dateJoined: "Feb 22, 2023",
-    },
-    {
-      name: "Natali Craig",
-      email: "email@gmail.com",
-      dateJoined: "Feb 22, 2023",
-    },
-    {
-      name: "Natali Craig",
-      email: "email@gmail.com",
-      dateJoined: "Feb 22, 2023",
-    },
-    {
-      name: "Natali Craig",
-      email: "email@gmail.com",
-      dateJoined: "Feb 22, 2023",
-    },
-    {
-      name: "Natali Craig",
-      email: "email@gmail.com",
-      dateJoined: "Feb 22, 2023",
-    },
-  ]);
   return (
     <Box>
       <PageHeader
@@ -57,7 +21,15 @@ const Home = () => {
         <Card />
         <Card />
       </Group>
-      <Box style={{ height: "360px", width: "100%", borderRadius:'20px', overflow:'hidden' }} my="xl">
+      <Box
+        style={{
+          height: "360px",
+          width: "100%",
+          borderRadius: "20px",
+          overflow: "hidden",
+        }}
+        my="xl"
+      >
         <GoogleMapReact
           bootstrapURLKeys={{ key: "" }}
           defaultCenter={{
@@ -74,8 +46,8 @@ const Home = () => {
         </GoogleMapReact>
       </Box>
       <SimpleGrid cols={{ base: 1, lg: 2 }} my="md" spacing={"xl"}>
-        <Users data={data} />
-        <Users data={data} />
+        <Users />
+        <Shops />
       </SimpleGrid>
     </Box>
   );
