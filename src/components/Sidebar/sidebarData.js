@@ -53,7 +53,7 @@ export const sidebarData = [
         color: "yellow",
       },
       {
-        label: "Inactive",
+        label: "Completed",
         link: routeNames.general.inactiveDrops,
         showBadge: true,
         color: "red",
